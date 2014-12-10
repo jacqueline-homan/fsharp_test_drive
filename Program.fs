@@ -86,7 +86,7 @@ Console.WriteLine("Press 0 for the operator")
 let userinput = Console.ReadLine()
 
 // Set up conditions where user input is true
-if userinput.Equals("1") then
+(*if userinput.Equals("1") then
     Console.Write("Hello, this is Evan.")
 elif userinput.Equals("2") then
     Console.Write("Hello, this is Jacqueline.")
@@ -98,8 +98,41 @@ elif userinput.Equals("0") then
     Console.Write("Please hold, we're transferring your call.")
 else
     Console.Write("This call has ended. Goodbye!")
-    
+*)
 
+// Define list of callers and numbers
+let numbers = [1..5]
+let callers = ["Evan";"Leah";"Jacqueline";"Adrienne";"Ed"]
+//let mutable value = 0
+
+// While Loop to iterate through list or array, usually when you don't know
+// the length of the list you want to iterate through
+(*let mutable value = 0
+while value < callers.Length do    
+    let caller = callers.Item(value)
+    let number = numbers.Item(value)
+    printfn "Press %i for %s" number caller
+    value <- value + 1
+done    
+*)
+
+// For Loop to iterate through a list or array where we know the lenght 
+for value = 0 to (callers.Length - 1) do   
+    let caller = callers.Item(value)
+    let number = numbers.Item(value)
+    printfn "Press %i for %s" number caller    
+ 
+
+
+let beginning x y = x - 2*y
+let ending x y = x + 2*y
+
+let function3 x y =
+    for i = (beginning x y) to (ending x y) do
+        printf "%d " i
+    printfn ""
+function3 10 4
+    
 
 //Stop console from closing, which is useful for testing.
 System.Console.ReadKey(true)
