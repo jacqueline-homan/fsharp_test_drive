@@ -13,9 +13,9 @@ the word System preceeding Console.WriteLine.
 *)
 open System
 open System.Collections
-
+open System.IO
 //Output Hello World!
-Console.WriteLine("Hello World")
+Console.WriteLine("Hello, J")
 
 ///<summary>
 /// Squared squares a number and then returns it. 
@@ -86,19 +86,19 @@ Console.WriteLine("Press 0 for the operator")
 let userinput = Console.ReadLine()
 
 // Set up conditions where user input is true
-(*if userinput.Equals("1") then
-    Console.Write("Hello, this is Evan.")
+if userinput.Equals("1") then
+    Console.Write("Hello, this is Evan.\n")
 elif userinput.Equals("2") then
-    Console.Write("Hello, this is Jacqueline.")
+    Console.Write("Hello, this is Jacqueline.\n")
 elif userinput.Equals("3") then
-    Console.Write("Hello, this is Leah.")
+    Console.Write("Hello, this is Leah.\n")
 elif userinput.Equals("4") then
-    Console.Write("Hello, this is Adrienne.")
+    Console.Write("Hello, this is Adrienne.\n")
 elif userinput.Equals("0") then
-    Console.Write("Please hold, we're transferring your call.")
+    Console.Write("Please hold, we're transferring your call.\n")
 else
-    Console.Write("This call has ended. Goodbye!")
-*)
+    Console.Write("This call has ended. Goodbye!\n")
+
 
 // Define list of callers and numbers
 let numbers = [1..5]
@@ -121,7 +121,7 @@ for value = 0 to (callers.Length - 1) do
     let caller = callers.Item(value)
     let number = numbers.Item(value)
     printfn "Press %i for %s" number caller    
- 
+done  
 
 
 let beginning x y = x - 2*y
@@ -130,12 +130,99 @@ let ending x y = x + 2*y
 let function3 x y =
     for i = (beginning x y) to (ending x y) do
         printf "%d " i
+    done 
     printfn ""
 function3 10 4
-    
+
+(* let arrA = [|1;3;5;7;9|] 
+printfn ((arrA.Length int) : int  
+    if (arrA.[0] to arrA.[4] -1) then 
+        printf("%i")    
+
+    printf("%d", arrA int)
+
+printf("%d", arrA int)    
+*)
+
+//Traffic Light - pattern matchin
+type TrafficLight = 
+    | Green
+    | Red
+    | Yellow
+let nextLight (currentLight : TrafficLight) : TrafficLight =
+    match currentLight with
+        | Green -> Yellow
+        | Red -> Green
+        | Yellow -> Red 
+
+Console.WriteLine("You've Come to the Traffic Light - Pick your color!")
+Console.WriteLine("Enter 1 for Red")
+Console.WriteLine("Enter 2 for Yellow")
+Console.WriteLine("Enter 3 for Green")
+Console.WriteLine("Enter 4 to exit")
+
+let user = Console.ReadLine()
+let colors = ["Red"; "Yellow"; "Green";]
+let num = [1..3]
+if user.Equals("1") then
+    Console.WriteLine("Red light!")
+elif user.Equals("2") then
+    Console.WriteLine("Yellow light!")
+elif user.Equals("3") then
+    Console.WriteLine("Green light!")
+else
+    Console.Write("OK! You're off to the races! Goodbye")
+ignore 0
+
+let mutable valu = 0
+
+while valu < colors.Length do    
+    let color = colors.Item(valu)
+    let num = num.Item(valu)
+    printfn "Press %i for %s" num color
+    valu <- valu + 1
+done    
+
+//Batter up!
+type Player = {Name : string; Rank : int}
+let isTheBest (player : Player) : bool =
+    match player with
+        | {Name = name; Rank = 1} -> do (printfn "%s is best player!" name)
+                                     true
+        | {Name = name; Rank = _} -> do (printfn "%s sucks." name)
+                                     false
+(*
+let bestOfThree (leftPlayer : Player) (rightPlayer : Player) (turns : turnList)
+  : Player option =
+    let decideMatch turn = 
+        match turn with
+            | Throws (Rock, Paper) -> Right
+            | Throws (Rock, Scissors) -> Left
+            | Throws (Paper, Scissors) -> Right
+            | Throws (Paper, Rock) -> Right
+            | Throws (Scissors, Rock) -> Right
+            | Throws (Scissors, Paper) -> Left
+            | _ -> Tie
+       
+     let (Turns ts) = turns
+
+     let decisions = List.map decideMatch ts
+     let counts = List.fold (fun c result -> match result with
+                                               | Left -> (c-1)
+                                               | Right -> (c+1)
+                                               | Tie -> c)
+                             0
+                             decisions
+      match counts with 
+        | x when x > 0 -> Some rightPlayer
+        | x when x < 0 -> Some leftPlayer
+        | _ -> None
+*)          
+
 
 //Stop console from closing, which is useful for testing.
-System.Console.ReadKey(true)
+Console.ReadKey(true) |> ignore
+
 
 // NOTE: If warnings appear, you may need to retarget this project to .NET 4.0. Show the Solution
 // Pad, right-click on the project node, choose 'Options --> Build --> General' and change the target

@@ -1,0 +1,7 @@
+/home/jacqueline/F-sharp/Hello World/Hello_World/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.fs
+/home/jacqueline/F-sharp/Hello World/Hello_World/bin/Debug/Hello_World.exe.mdb
+/home/jacqueline/F-sharp/Hello World/Hello_World/bin/Debug/Hello_World.exe
+/home/jacqueline/F-sharp/Hello World/Hello_World/obj/x86/Debug/Hello_World.exe
+/home/jacqueline/F-sharp/Hello World/Hello_World/obj/x86/Debug/Hello_World.exe.mdb
+/home/jacqueline/F-sharp/Hello World/Hello_World/bin/Debug/AutoMapper.dll
+/home/jacqueline/F-sharp/Hello World/Hello_World/bin/Debug/AutoMapper.Net4.dll
